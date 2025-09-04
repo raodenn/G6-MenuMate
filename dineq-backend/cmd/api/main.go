@@ -42,7 +42,7 @@ func main() {
     port = "8080" // fallback for local dev
 }
 	srv := &http.Server{
-		Addr:         env.Port,
+		Addr:         ":" + port,
 		Handler:      router,
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
