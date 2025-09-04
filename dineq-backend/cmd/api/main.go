@@ -38,7 +38,9 @@ func main() {
 	// router.Use(middleware.RequestLogger())
 	// router.Use(middleware.Recovery())
 	routers.Setup(env, timeout, db, router)
-
+	if port == "" {
+    port = "8080" // fallback for local dev
+}
 	srv := &http.Server{
 		Addr:         env.Port,
 		Handler:      router,
